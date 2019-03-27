@@ -10,7 +10,7 @@ let GetCoord = { pos -> "[" . pos[1] . "," . pos[2]. "]" }
 " GetCoords :: [[Int, Int]]
 " GetCoords returns the corrds of top-left and bottom-right of a visual selection.
 let GetCoords = { -> "[" . GetCoord(getpos("'<"))
-                \ . "," . GetCoord(getpos("'>")) . "]" }
+                \ .  "," . GetCoord(getpos("'>")) . "]" }
 
 """"""""""""""""""""
 " Interaction
@@ -19,7 +19,7 @@ let GetCoords = { -> "[" . GetCoord(getpos("'<"))
 " BuildExCmd cmd constructs an Ex command and run it over the 'range'
 function! BuildExCmd(cmd) 
   if a:cmd ==# "hcc toggle-block"
-    let l:strCommand = "'<,'>" . " ! " . a:cmd . " --coords=" . s:GetCoords() 
+    let lstrCommand = "'<,'>" . " ! " . a:cmd . " --coords=" . GetCoords() 
   else 
     let l:strCommand = "'<,'>" . " ! " . a:cmd
   endif
