@@ -5,21 +5,22 @@
 """"""""""""""""""""
 " GetCoord :: [Int] -> [Int, Int]
 " GetCoord pos constructs a two element list from pos
-let GetCoord = { pos -> "[" . pos[1] . "," . pos[2]. "]" }  
+let s:GetCoord = { pos -> "[" . pos[1] . "," . pos[2]. "]" }  
 
 " GetCoords :: [[Int, Int]]
 " GetCoords returns the corrds of top-left and bottom-right of a visual selection.
-let GetCoords = { -> "[" . GetCoord(getpos("'<"))
-                \ .  "," . GetCoord(getpos("'>")) . "]" }
+let s:GetCoords = { -> "[" . s:GetCoord(getpos("'<"))
+                \ .  "," . s:GetCoord(getpos("'>")) . "]" }
 
 """"""""""""""""""""
 " Interaction
 """"""""""""""""""""
 " BuildExCmd :: String -> Action
 " BuildExCmd cmd constructs an Ex command and run it over the 'range'
+" e.g. => '<,'> ! hcc toggle-block --coords=[[27,1],[27,2147483647]]
 function! BuildExCmd(cmd) 
   if a:cmd ==# "hcc toggle-block"
-    let lstrCommand = "'<,'>" . " ! " . a:cmd . " --coords=" . GetCoords() 
+    let l:strCommand = "'<,'>" . " ! " . a:cmd . " --coords=" . s:GetCoords()
   else 
     let l:strCommand = "'<,'>" . " ! " . a:cmd
   endif
