@@ -13,10 +13,12 @@ HCV lets you add or remove annotations (`--`, `{- -}`, `-- |`) using key strokes
 	
 ### Annotate using nested comment
 To comment out selected text using Haskell’s nested comment: `{- and -}`, first select what you want to comment out by highlighting it, then press `,tb` or `⌘ + [`. To uncomment, move the cursor to `{` or `}`,  then press `,tb` or `⌘ + [`.
+
 ![](https://raw.githubusercontent.com/arbitary/asset/master/demo/haskell-comment-vim/haskell-block-comment-toggle.gif "How to comment, uncomment using Haskell's nested comment.")
 
 ### Annotate a line using Haddock 
 To comment or uncomment a line using Haddock annotation `-- |`, move the cursor to the specific line, then press `,th` or `⌘ + \`.
+
 ![](https://raw.githubusercontent.com/arbitary/asset/master/demo/haskell-comment-vim/haskell-comment-add-haddock.gif "comment, uncomment using Haddock")
 
 ## How to use it
