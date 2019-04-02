@@ -1,5 +1,3 @@
-t it is
-
 Haskell Comment VIM **(HCV)** is a plugin for the VIM editor to interact with the Haskell Comment Command **(HCC)** line program; this enables you to annotate Haskell programs directly in VIM using features from **HCC**. [Haskell Comment Command **(HCC)**](https://github.com/arbitary/haskell-comment-command "Haskell Comment Command Line Tool") is a command-line program to annotate source code written in Haskell programming language. 
 
 ## How it works
