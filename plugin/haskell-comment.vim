@@ -5,7 +5,7 @@
 """"""""""""""""""""
 " GetCoord :: (Int, Int) -> Int, Int
 " GetCoord pos constructs a two element list from pos
-let s:GetCoord = { pos -> pos[1] . "," . pos[2]. }  
+let s:GetCoord = { pos -> pos[1] . "," . pos[2] }  
 
 " GetCoords :: [[Int, Int]]
 " GetCoords returns the corrds of top-left and bottom-right of a visual selection.
