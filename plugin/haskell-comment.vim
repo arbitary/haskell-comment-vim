@@ -3,9 +3,9 @@
 """"""""""""""""""""
 " Function
 """"""""""""""""""""
-" GetCoord :: [Int] -> [Int, Int]
+" GetCoord :: (Int, Int) -> Int, Int
 " GetCoord pos constructs a two element list from pos
-let s:GetCoord = { pos -> "[" . pos[1] . "," . pos[2]. "]" }  
+let s:GetCoord = { pos -> pos[1] . "," . pos[2]. }  
 
 " GetCoords :: [[Int, Int]]
 " GetCoords returns the corrds of top-left and bottom-right of a visual selection.
@@ -17,7 +17,7 @@ let s:GetCoords = { -> "[" . s:GetCoord(getpos("'<"))
 """"""""""""""""""""
 " BuildExCmd :: String -> Action
 " BuildExCmd cmd constructs an Ex command and run it over the 'range'
-" e.g. => '<,'> ! hcc toggle-block --coords=[[27,1],[27,2147483647]]
+" e.g. => '<,'> ! hcc toggle-block --coords=[27,1,27,21]
 function! BuildExCmd(cmd) 
   if a:cmd ==# "hcc toggle-block"
     let l:strCommand = "'<,'>" . " ! " . a:cmd . " --coords=" . s:GetCoords()
@@ -35,7 +35,7 @@ if  (g:enable_hs_comment_bindings ==# 1)
     vnoremap <silent><leader>th <esc>:call    BuildExCmd ("hcc toggle-haddock")<cr>
     nnoremap <silent><leader>th V<esc>:call   BuildExCmd ("hcc toggle-haddock")<cr>
     vnoremap <silent><leader>tb <esc>:call    BuildExCmd("hcc toggle-block")<cr>
-    " tb in normal mode should only remove a block comment to avlid messing up
+    " tb in normal mode should only remove a block comment to avoid messing up
     " with any (), {} [], which has nothing to do with
     " haskell block comment. Solution: Add a flag indicating it should only remove
     " block comment. Solution 2: build a customized vim command which will
