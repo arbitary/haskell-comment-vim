@@ -29,7 +29,7 @@ endfunction
 
 " key mappings for togglling Haskell comments
 if  (g:enable_hs_comment_bindings ==# 1)
-    vnoremap <silent><leader>ac <esc>:call    BuildExCmd ("hcc toggle-section")<cr>
+    vnoremap <silent><leader>ac <esc>:call    BuildExCmd ("hcc add-section")<cr>
     vnoremap <silent><leader>tl <esc>:call    BuildExCmd ("hcc toggle-line")<cr>
     nnoremap <silent><leader>tl V<esc>:call   BuildExCmd ("hcc toggle-line")<cr>
     vnoremap <silent><leader>th <esc>:call    BuildExCmd ("hcc toggle-haddock")<cr>
